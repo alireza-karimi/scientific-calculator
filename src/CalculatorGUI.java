@@ -1,20 +1,18 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class CalculatorGUI {
+public class CalculatorGUI extends JFrame {
 	
-	JFrame calculatorFrame;
 	JPanel usualButtons;
 	JPanel scientificButtons;
 	
 	public CalculatorGUI(){
-		calculatorFrame = new JFrame();
-		calculatorFrame.setTitle("Alireza Calculator!");
-		calculatorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Alireza Calculator!");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		calculatorFrame.setLocation(dim.width/4, dim.height/4);
-		calculatorFrame.setSize(250, 350);
-		calculatorFrame.setLayout(new BorderLayout());
+		this.setLocation(dim.width/4, dim.height/4);
+		this.setSize(250, 350);
+		this.setLayout(new BorderLayout());
 		
 		//creating usual buttons panel
 		CreateUsualButtonsPanel();
@@ -25,7 +23,6 @@ public class CalculatorGUI {
 		//adding display to frame
 		addDisplay();
 		
-		calculatorFrame.setVisible(true);
 	}
 	
 	private void CreateUsualButtonsPanel(){
@@ -143,7 +140,7 @@ public class CalculatorGUI {
 	    tp.add("usual",usualButtons);  
 	    tp.add("scientifc",scientificButtons);
 	    
-	    calculatorFrame.add(tp, BorderLayout.CENTER); 
+	    this.add(tp, BorderLayout.CENTER); 
 	   
 	}
 	
@@ -153,7 +150,7 @@ public class CalculatorGUI {
 		
 		JScrollPane scrollPane = new JScrollPane(display);
 		
-		calculatorFrame.add(scrollPane, BorderLayout.NORTH);
+		this.add(scrollPane, BorderLayout.NORTH);
 		
 	}
 	
