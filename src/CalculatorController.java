@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.KeyStroke;
+
 /**
  * controller class for calculator
  * @author alireza
@@ -281,6 +283,16 @@ public class CalculatorController {
 			}
 			else if(keyString.equals("Equals") || keyString.equals("Enter")){
 				calculatorLogic.performCalculations();
+			}
+			else if(keyString.equals("E")){
+				System.exit(0);
+			}
+			else if(event.isControlDown() && KeyEvent.getKeyText(event.getKeyCode()).equals("C")){
+				StringSelection stringSelection = new StringSelection(calculatorGUI.getDisplay().getText());
+				Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+				clpbrd.setContents(stringSelection, null);
+				
+				calculatorGUI.showMessage("Copied to clipboard!");
 			}
 			
 			
